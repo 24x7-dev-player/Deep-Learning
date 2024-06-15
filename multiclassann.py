@@ -2,28 +2,19 @@ import tensorflow
 from tensorflow import keras
 from tensorflow.keras import Sequential
 from tensorflow.keras.layers import Dense,Flatten
-
 (X_train,y_train),(X_test,y_test) = keras.datasets.mnist.load_data()
-
 X_test.shape
-
 y_train
-
 import matplotlib.pyplot as plt
 plt.imshow(X_train[2])
-
 X_train = X_train/255
 X_test = X_test/255
-
 X_train[0]
-
 model = Sequential()
-
 model.add(Flatten(input_shape=(28,28)))
 model.add(Dense(128,activation='relu'))
 model.add(Dense(32,activation='relu'))
 model.add(Dense(10,activation='softmax'))
-
 model.summary()
 
 model.compile(loss='sparse_categorical_crossentropy',optimizer='Adam',metrics=['accuracy'])
